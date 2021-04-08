@@ -22,12 +22,12 @@ public class PatternMatching {
 
     }
 
-    static int patternMatcher(String ref, String match) {
-        int refLength = ref.length();
+    static int patternMatcher(String subString, String mainString) {
+        int refLength = subString.length();
         int counter = 0;
         int matchStartIndex = 0;
-        for (int i = 0; i < match.length(); i++) {
-            if (match.charAt(i) == ref.charAt(counter)) {
+        for (int i = 0; i < mainString.length(); i++) {
+            if (mainString.charAt(i) == subString.charAt(counter)) {
                 counter ++;
                 if (counter == refLength) {
                     return matchStartIndex;
@@ -36,6 +36,10 @@ public class PatternMatching {
             else {
                 counter = 0;
                 matchStartIndex = i + 1;
+                if (mainString.charAt(i) == subString.charAt(counter)) {
+                    counter++;
+                    matchStartIndex--;
+                }
             }
         }
         return -1;
