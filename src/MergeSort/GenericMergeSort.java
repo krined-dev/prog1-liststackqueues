@@ -1,17 +1,15 @@
 package MergeSort;
 
-import java.lang.reflect.Array;
-
-
-
 class GenericMergeSort {
     public static void main(String[] args) {
         String[] strings = {"F", "K", "C", "A"};
+        Integer[] ints = {0, 10 ,42, 55, 23, 430};
 
-        //Comparable.class.cast(strings);
-        //System.out.println(strings[0].compareTo("Z"));
-        //System.out.println(strings[0].compareTo("A"));
+        mergeSort(ints);
         mergeSort(strings);
+        for (Integer i : ints) {
+            System.out.println(i);
+        }
 
         for (String s: strings) {
             System.out.println(s);
@@ -25,7 +23,6 @@ class GenericMergeSort {
         mergeSort(firstHalf);
 
         int secondHalfLength =  list.length - list.length / 2;
-        System.out.println(secondHalfLength);
         E[] secondHalf = (E[]) new Comparable[secondHalfLength];
         System.arraycopy(list, list.length / 2, secondHalf, 0,secondHalfLength);
         mergeSort(secondHalf);
